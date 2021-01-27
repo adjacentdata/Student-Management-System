@@ -51,7 +51,7 @@ def deleteRecord():
 #3
 def update_Record():
     global numofStudents
-    global tdays
+    global totalDays
     global name
     global student
     student_updater = input("Please enter the student's first and last name: ")
@@ -87,23 +87,22 @@ def update_Record():
     if update_present == "1":
         str_present = input("number of days a student was present: ")
         present = int(str_present)
-        attendance = (present) / tdays * 100
+        attendance = (present) / totalDays * 100
         print("Attendance Percentage: ")
         print(attendance)
     else:
         present = arr[3]
         print(present)
-        attendance = (present) / tdays * 100
+        attendance = (present) / totalDays * 100
         print("Attendance Percentage")
         print(attendance)
 
     #student removal and final update
     all_students.pop(student_updater)
     student = Student(name, roll_number, fees_paid, present, attendance)
-    all_students[student.name] = (student.name, student.roll, student.fees, student.numDaysPresent, student.att)
+    all_students[student.name] = [student.name, student.roll, student.fees, student.numDaysPresent, student.att]
     continue_Process()
 
-#4
 def print_students():
     global all_students
     print("Name, Roll Number, Fees Due?, Days Present, Attendance ")
@@ -111,10 +110,9 @@ def print_students():
         print(all_students[i])
     continue_Process()
 
-#5
 def createStudent():
     global numofStudents
-    global tdays
+    global totalDays
     global name
     global student
     numofStudents += 1
@@ -136,7 +134,7 @@ def createStudent():
     print("Number of days student was present: ")
     print(str_present)
     present = int(str_present)
-    attendance = (present)/tdays*100
+    attendance = (present)/totalDays*100
     print("Students attendance percentage:")
     print(attendance)
 
@@ -163,13 +161,13 @@ if __name__ == "__main__":
     j = 0
     present = 75
     money = 'P'
-    tdays = 119
+    totalDays = 119
     all_students = {}
     numofStudents = 0
 
     #Program starts here
     print("Student Database")
-    print("\nEnter 1 to add Student")
+    print("\nEnter 1 to add student")
     print("\nEnter 0 to Exit")
     y = input("\nInput operation here: ")
 
@@ -177,3 +175,5 @@ if __name__ == "__main__":
         add_Student()
     elif y == "0":
         print("All done!")
+
+

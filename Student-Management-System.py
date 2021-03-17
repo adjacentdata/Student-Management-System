@@ -1,3 +1,5 @@
+# When trying to update or delete, make sure to type the full names correctly. 
+
 class Student:
     def __init__(self, name, rollNumber, oweDues, numPresent, att):
         self.name = name

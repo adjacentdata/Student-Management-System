@@ -1,4 +1,4 @@
-# When trying to update or delete, make sure to type the full names correctly. 
+# When trying to update or delete, make sure to type the full names correctly (Including spaces). 
 
 class Student:
     def __init__(self, name, rollNumber, oweDues, numPresent, att):
